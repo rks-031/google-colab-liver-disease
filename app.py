@@ -1,14 +1,14 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, url_for, render_template
 import numpy as np
 import pickle
 
 app = Flask(__name__)
 
-# Load the StandardScaler object
-sc = pickle.load(open('sc.pkl', 'rb'))
-
-# Load the trained model
-model = pickle.load(open('model.pkl', 'rb'))
+try:
+    sc = pickle.load(open('sc.pkl', 'rb'))
+    model = pickle.load(open('model.pkl', 'rb'))
+except Exception as e:
+    print(f"Error loading pickled files: {e}")
 
 
 @app.route('/')
@@ -20,21 +20,17 @@ def home():
 def predict():
     try:
         inputs = [float(x) for x in request.form.values()]
-        if len(inputs) != expected_number_of_features:
-            raise ValueError('Invalid number of input values')
-
         inputs = np.array([inputs])
         inputs = sc.transform(inputs)
         output = model.predict(inputs)
-
-        # Convert output to 0 or 1 based on threshold
-        prediction = int(output[0] >= 0.5)
-
-        return render_template('result.html', prediction=prediction)
-
+        if output < 0.5:
+            output = 0
+        else:
+            output = 1
+        return render_template('result.html', prediction=output)
     except Exception as e:
-        error_message = f'Error: {str(e)}'
-        return render_template('error.html', error_message=error_message)
+        print(f"Error processing prediction: {e}")
+        return render_template('error.html')
 
 
 if __name__ == '__main__':
