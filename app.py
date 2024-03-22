@@ -19,7 +19,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        inputs = [float(x) for x in request.form.values()]
+        inputs = [int(x) for x in request.form.values()]
         inputs = np.array([inputs])
         inputs = sc.transform(inputs)
         output = model.predict(inputs)
