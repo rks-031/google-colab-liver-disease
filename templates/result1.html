@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zainam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="result1.css" />
+    <style>
+      :root {
+        --heading-color: green;
+        --heading-positive-color: #e28743;
+      }
+
+      body {
+        background-image: linear-gradient(
+          174.2deg,
+          rgba(255, 244, 228, 1) 7.1%,
+          rgba(240, 246, 238, 1) 67.4%
+        );
+      }
+
+      .heading {
+        color: var(--heading-color);
+      }
+
+      .heading-positive {
+        color: var(--heading-positive-color);
+      }
+
+      #doctorAnimation {
+        width: 400px; /* Set desired width */
+        height: 400px; /* Set desired height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Style for the container holding the animation and text */
+      .animation-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      /* Style for the text container */
+      .text-container {
+        max-width: 400px; /* Adjust the max-width as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+      <a class="navbar-brand text-white" href="#">Zainam</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon ml-auto" style="color: #fff"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a
+              class="nav-link text-white mx-1 ml-auto"
+              href="https://github.com/rks-031/google-colab-liver-disease.git"
+              target="_blank"
+              >GitHub CodeSpace<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br /><br />
+    <div class="container my-3">
+      <h2 class="text-center my-4 heading text-wrap">TEST RESULTS</h2>
+      {% if prediction == 1%}
+      <hr class="mx-4" style="background-color: wheat" />
+      <h2 class="text-center my-4 heading-positive text-wrap">
+        Chances of having Liver Disease is more, please consult a Doctor.
+      </h2>
+      <div class="animation-container">
+        <!-- Image container -->
+        <div id="doctorAnimation">
+          <img
+            src="https://t3.ftcdn.net/jpg/06/90/35/24/360_F_690352416_wdqB85hte1BMfKb5taaaP6FPVKvqBgjQ.jpg"
+            alt="HTML"
+            width="350"
+            height="250"
+          />
+        </div>
+        <!-- Text container -->
+        <div class="text-container">
+          <p class="heading ml-4 mt-3 text-wrap">
+            Classic symptoms of liver disease include:
+          </p>
+          <ul class="heading">
+            <li>Nausea</li>
+            <li>Vomiting</li>
+            <li>Right upper quadrant abdominal pain, and</li>
+            <li>
+              Jaundice (a yellow discoloration of the skin due to elevated
+              bilirubin concentrations in the bloodstream).
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br />
+      {% elif prediction == 0%}
+      <h2 class="text-center my-4 heading-positive text-wrap">
+        No Worries!!! You don't have Liver Disease.
+      </h2>
+      <div id="rabbit"></div>
+      <!-- Include Lottie library -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
+      <!-- Load and play the Lottie animation -->
+      <script>
+        const animation = lottie.loadAnimation({
+          container: document.getElementById("doctorAnimation"),
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: "doctorAnimation.json",
+        });
+      </script>
+      {% endif %}
+    </div>
+  </body>
+</html>

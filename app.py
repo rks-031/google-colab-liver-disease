@@ -13,7 +13,7 @@ except Exception as e:
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index1.html')
 
 
 @app.route('/predict', methods=['POST'])
@@ -27,7 +27,7 @@ def predict():
             output = 0
         else:
             output = 1
-        return render_template('result.html', prediction=output)
+        return render_template('result1.html', prediction=output)
     except Exception as e:
         print(f"Error processing prediction: {e}")
         return render_template('error.html')
