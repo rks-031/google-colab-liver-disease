@@ -3,6 +3,8 @@
   <head>
     <title>Zainam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- favicon link -->
+    <link rel="icon" type="image/ico" href="favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -55,6 +57,13 @@
           margin-top: 0;
         }
       }
+
+      
+      .nav-toggler-icon {
+        background-color: #343a40; /* Set icon color to dark */
+        border: 1px solid wheat;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
@@ -69,7 +78,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon ml-auto" style="color: #fff"></span>
+        <span class="navbar-toggler-icon nav-toggler-icon ml-auto" style="color: #fff"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
