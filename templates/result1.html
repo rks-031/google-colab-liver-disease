@@ -14,7 +14,6 @@
         --heading-color: green;
         --heading-positive-color: #e28743;
       }
-
       body {
         background-image: linear-gradient(
           174.2deg,
@@ -22,48 +21,38 @@
           rgba(240, 246, 238, 1) 67.4%
         );
       }
-
       .heading {
         color: var(--heading-color);
       }
-
       .heading-positive {
         color: var(--heading-positive-color);
       }
-
       #doctorAnimation {
-        width: 300px; /* Set desired width */
-        height: 300px; /* Set desired height */
+        width: 300px;
+        height: 300px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 20px; /* Add margin for spacing */
+        margin-bottom: 20px;
       }
-
-      /* Style for the container holding the animation and text */
       .animation-container {
         display: flex;
-        flex-wrap: wrap; /* Allow items to wrap to next line */
-        justify-content: space-around; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
         margin-top: 20px;
       }
-
-      /* Style for the text container */
       .text-container {
-        max-width: 400px; /* Adjust the max-width as needed */
-        margin-top: 20px; /* Add margin between animation and text on larger screens */
+        max-width: 400px;
+        margin-top: 20px;
       }
-
-      /* Media query for smaller screens */
       @media (max-width: 768px) {
         .animation-container {
-          flex-direction: column; /* Arrange items in a column for smaller screens */
-          align-items: center; /* Center items horizontally */
+          flex-direction: column;
+          align-items: center;
         }
-
         .text-container {
-          margin-top: 0; /* Remove margin between animation and text on smaller screens */
+          margin-top: 0;
         }
       }
     </style>
@@ -104,7 +93,6 @@
         High chances of unhealthy liver, please consult a doctor!!
       </h2>
       <div class="animation-container">
-        <!-- Animation container -->
         <dotlottie-player
           src="https://lottie.host/e85d181b-7b05-454e-abd3-a172ce19c6b0/7piTcPGWgx.json"
           background="transparent"
@@ -114,7 +102,6 @@
           loop
           autoplay
         ></dotlottie-player>
-        <!-- Text container -->
         <div class="text-container">
           <p class="heading ml-4 mt-3 text-wrap">
             Classic symptoms of liver disease include:
@@ -144,15 +131,8 @@
         loop
         autoplay
       ></dotlottie-player>
-      <!-- Include Lottie library -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js"></script>
-      <!-- Load and play the Lottie animation -->
-      {% endif %}
+      </div>
     </div>
-    <script
-      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-      type="module"
-    ></script>
     <script
       src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
       type="module"
